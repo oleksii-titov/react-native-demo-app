@@ -1,23 +1,33 @@
 import {createSlice} from '@reduxjs/toolkit';
 
-export const userSlice = createSlice({
+type State = {
+  firstName: string;
+  lastName: string;
+  birthdayDate: string;
+  email: string;
+  phone: string;
+};
+
+export const initialState: State = {
+  firstName: '',
+  lastName: '',
+  birthdayDate: '',
+  email: '',
+  phone: '',
+};
+
+export const userSlice: any = createSlice({
   name: 'user',
-  initialState: {
-    firstName: '',
-    lastName: '',
-    age: 0,
-    email: '',
-    phone: '',
-  },
+  initialState: initialState,
   reducers: {
-    setFirstName: (state, action) => {
+    setFirstName: (state: State, action) => {
       state.firstName = action.payload.firstName;
     },
     setLastName: (state, action) => {
       state.lastName = action.payload.lastName;
     },
-    setAge: (state, action) => {
-      state.age = action.payload.age;
+    setBirthdayDate: (state, action) => {
+      state.birthdayDate = action.payload.birthdayDate;
     },
     setEmail: (state, action) => {
       state.email = action.payload.email;
@@ -25,10 +35,26 @@ export const userSlice = createSlice({
     setPhone: (state, action) => {
       state.phone = action.payload.phone;
     },
+    reset: (state, action) => {
+      const {firstName, lastName, birthdayDate, email, phone} = action.payload;
+      return {
+        firstName: firstName,
+        lastName: lastName,
+        birthdayDate: birthdayDate,
+        email: email,
+        phone: phone,
+      };
+    },
   },
 });
 
-export const {setFirstName, setLastName, setAge, setPhone, setEmail} =
-  userSlice.actions;
+export const {
+  setFirstName,
+  setLastName,
+  setBirthdayDate,
+  setPhone,
+  setEmail,
+  reset,
+} = userSlice.actions;
 
 export default userSlice.reducer;

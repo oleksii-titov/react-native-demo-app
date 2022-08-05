@@ -1,5 +1,4 @@
 import {StyleSheet} from 'react-native';
-// import {Colors} from 'react-native-ui-lib/src';
 
 const styles = StyleSheet.create({
   startBtn: {
@@ -7,7 +6,6 @@ const styles = StyleSheet.create({
     width: '100%',
     bottom: 0,
     alignItems: 'center',
-    // backgroundColor: Colors.orange30,
     backgroundColor: 'orange',
     padding: 10,
     height: 63,
@@ -24,7 +22,15 @@ const styles = StyleSheet.create({
   },
   welcomeText: {
     fontSize: 40,
-    fontFamily: 'Trebuchet MS',
+  },
+  welcomeTextWithData: {
+    fontSize: 20,
+    margin: 20,
+  },
+  verifiedIcon: {
+    width: 200,
+    height: 200,
+    marginBottom: 100,
   },
 });
 

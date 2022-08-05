@@ -1,26 +1,31 @@
 import React from 'react';
-import {SafeAreaView, Text, TouchableOpacity, View} from 'react-native';
-import styles from './styles';
 import {Screens} from '../screens';
+import {useDispatch, useSelector} from 'react-redux';
+import {initialState, reset} from '../../redux/user';
+import {WelcomeText} from '../../components/WelcomeText/WelcomeText';
+import {NextButton} from '../../components/NextButton/NextButton';
 
 const Home = ({navigation}: any) => {
+  const dispatch = useDispatch();
+  const userData = useSelector((state: any) => state.userData);
+  const hasUserData: boolean =
+    !!userData.firstName &&
+    !!userData.lastName &&
+    !!userData.phone &&
+    !!userData.email &&
+    !!userData.birthdayDate;
+
   const onPress = () => {
-    navigation.navigate(Screens.USER_DATA);
+    if (!hasUserData) {
+      navigation.navigate(Screens.USER_DATA);
+    }
+    dispatch(reset(initialState));
   };
 
   return (
     <>
-      <View style={styles.welcomeTextViewContainer}>
-        <Text style={styles.welcomeText}>Hello</Text>
-      </View>
-      <SafeAreaView>
-        <TouchableOpacity
-          style={styles.startBtn}
-          onPress={onPress}
-          activeOpacity={0.2}>
-          <Text style={styles.startBtnText}>Start</Text>
-        </TouchableOpacity>
-      </SafeAreaView>
+      <WelcomeText hasUserData={hasUserData} />
+      <NextButton hasUserData={hasUserData} onPress={onPress} />
     </>
   );
 };

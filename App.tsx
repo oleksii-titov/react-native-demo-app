@@ -6,7 +6,7 @@ import UserData from './src/screens/UserData/UserData';
 import {Congrats} from './src/screens/Congrats/Congrats';
 import {Screens} from './src/screens/screens';
 import {Provider} from 'react-redux';
-import store from './src/redux/store';
+import {store} from './src/redux/store';
 
 const App = () => {
   const Stack = createNativeStackNavigator();
