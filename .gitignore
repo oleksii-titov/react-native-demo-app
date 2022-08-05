@@ -1,5 +1,7 @@
 # OSX
 #
+package-lock.json
+package.json
 .DS_Store
 
 # Xcode
@@ -24,7 +26,6 @@ ios/.xcode.env.local
 
 # Android/IntelliJ
 #
-build/
 .idea
 .gradle
 local.properties

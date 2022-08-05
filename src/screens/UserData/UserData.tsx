@@ -21,7 +21,7 @@ const UserData = ({navigation}: any) => {
         <TextInput
           placeholder="First name"
           autoCapitalize="sentences"
-          onChangeText={() => console.log('onChange')}
+          onEndEditing={() => console.log('onEndEditing')}
           style={styles.firstNameInput}
         />
         <TextInput
